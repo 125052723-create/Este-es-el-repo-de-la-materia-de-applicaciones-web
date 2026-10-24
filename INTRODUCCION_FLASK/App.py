@@ -17,7 +17,7 @@ app.secret_key = 'mysecretkey'
 
 
 
-#Creacion de la ruta. La ruta / es la raiz 
+#RUTA
 
 @app.route("/")
 def home():
