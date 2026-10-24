@@ -15,6 +15,8 @@ app.config['MYSQL_DB'] = 'FlaskDB'
 app.secret_key = 'mysecretkey'
 
 
+
+
 #Creacion de la ruta. La ruta / es la raiz 
 
 @app.route("/")
