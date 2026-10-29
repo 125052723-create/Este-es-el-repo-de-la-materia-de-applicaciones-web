@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
 
-    <title>LOGIN</title>
+    <title>Login</title>
 </head>
 
 <body>
@@ -21,7 +21,7 @@
             <input type="email" name="correo" class="email input-accent" required>
             <br>
             <br>
-            <label>Contraseña</label>
+            <label>Contraseña:</label>
             <br>
             <input type="password" name="password_hash" class="password input-accent" readonly>
             <br>
@@ -29,9 +29,10 @@
             <button type="submit" class="btn btn-warning">Entrar</button>
 
         </form>
+        <br>
+        <p><a href="{{ url_for('registro') }}">No tienes cuenta?</a></p>
+        
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
-
 </html>

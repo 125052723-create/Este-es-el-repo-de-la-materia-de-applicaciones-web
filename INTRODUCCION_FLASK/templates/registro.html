@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+
+    <title>Registro</title>
+</head>
+
+<body>
+    <div>
+        <h1>Registro de usuarios</h1>
+        <br>
+        <form action="/registro" method="post">
+            <label>Nombre(s): </label>
+            <br>
+            <input type="text" name="nombre">
+            <br>
+            <br>
+            <label>Apellido paterno: </label>
+            <br>
+            <input type="text" name="apellido_p">
+            <br>
+            <br>
+            <label>Apellido materno: </label>
+            <br>
+            <input type="text" name="apellido_m">
+            <br>
+            <br>
+            <label>Correo: </label>
+            <br>
+            <input type="email" name="correo">
+            <br>
+            <br>
+            <label>Contraseña: </label>
+            <br>
+            <input type="password" name="password">
+            <br>
+            <br>
+            <label for="id_rol">Rol: </label>
+            <br>
+            <select name="id_rol" id="id_rol">
+                <option value="1">Administrador</option>
+                <option value="2">Usuario</option>
+            </select>
+            <br>
+            <br>
+
+            <button type="submit" class="btn btn-warning">Registrar</button>
+        </form>
+        <br>
+        <br>
+        <p><a href="{{ url_for('login') }}">Regresar</a></p>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</html>
