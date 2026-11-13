@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Album a eliminar</title>
+</head>
+<body>
+    <form action="/eliminar/{{Album.0}}" method="POST">
+        <input type="text" name="txtTitulo" value="{{Album.1}}">
+        <input type="text" name="txtArtista" value="{{Album.2}}">
+        <input type="text" name="txtAnio" value="{{Album.3}}">
+        <button type="submit" onclick="return Eliminar()">Eliminar</button>
+        <button type="button" onclick="Regresar()">Regresar</button>
+    </form>
+
+    <script>
+        function Eliminar(){
+            return confirm('Estas seguro de que deseas eliminar este album?');
+        }
+        function Regresar(){
+            window.location.href = "{{ url_for('index') }}";
+        }
+    </script>
+</body>
+</html>

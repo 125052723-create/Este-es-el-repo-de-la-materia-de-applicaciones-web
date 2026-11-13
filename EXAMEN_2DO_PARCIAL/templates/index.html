@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <title>CRUD Albums</title>
+</head>
+<body>
+    <div>
+        <h1>GESTION DE ALBUMS</h1>
+
+        {% with mesajes= get_flashed_messages() %}
+            {% if mesajes %}
+                {% for msj in mesajes %}
+                    <h3> {{msj}}</h3>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form action="/guardar" method="POST">
+            <input type="text" name="txtTitulo input-ghost" placeholder="Escribe el titulo">
+            <input type="text" name="txtArtista input-ghost" placeholder="Escribe el artista">
+            <input type="text" name="txtAnio input-ghost" placeholder="Escribe el año">
+            <button type="submit" class="btn-warning">Guardar</button>
+            
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <td>ID: </td>
+                    <td>Album: </td>
+                    <td>Artista: </td>
+                    <td>Año de publicacion: </td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for alb in listAlbums %}
+                <tr>
+                    <td>{{alb.0}}</td>
+                    <td>{{alb.1}}</td>
+                    <td>{{alb.2}}</td>
+                    <td>{{alb.3}}</td>
+                    <td>
+                        <a href="/editar/{{alb.0}}">Editar</a>
+                        <a href="/eliminar/{{alb.0}}">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</html>
