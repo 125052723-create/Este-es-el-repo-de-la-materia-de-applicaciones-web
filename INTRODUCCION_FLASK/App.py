@@ -12,7 +12,7 @@ app = Flask(__name__)
 #Configuración de la conexión
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MTSQL_PASSWORD'] = ''
+app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'FlaskDB'
 #Permite que Flask vuelva a cargar las plantillas cuando se modifican
 app.config["TEMPLATES_AUTO_RELOAD"] = True
@@ -98,7 +98,7 @@ def login():
             usuarios.password,
             roles.nombre
             FROM usuarios
-            INNER JOIN id_rol
+            INNER JOIN roles
             ON usuarios.id_rol = roles.id_rol
             WHERE usuarios.correo = %s
         """
@@ -122,6 +122,8 @@ def login():
 
             return redirect(url_for("usuario"))
         return render_template("login.html")
+
+    return render_template("login.html")
 
 #Ruta de administrador
 @app.route("/admin")
@@ -150,7 +152,7 @@ def usuario():
         return "Acceso denegado", 403
 
     return render_template(
-        "usuarios.html",
+        "usuario.html",
         nombre=session["nombre"]
     )
 

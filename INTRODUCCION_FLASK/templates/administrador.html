@@ -1,12 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administrador</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+
+    <title>HOME DE ADMINISTRADORES</title>
 </head>
+
 <body>
-    Este es el dashboard de Administrador
-    <p><a href="{{ url_for('logout') }}">Cerrar Sesión</a></p>
+    {% extends 'nav_footer.html' %}
+
+    {% block content %}
+
+    <div class="p-10">
+        <h1 class="text-3xl font-bold">
+            Bienvenido, administrador
+        </h1>
+
+        <p class="mt-4">
+            Este es el contenido principal de la pagina
+        </p>
+    </div>
+    {% endblock %}
 </body>
+
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+
 </html>

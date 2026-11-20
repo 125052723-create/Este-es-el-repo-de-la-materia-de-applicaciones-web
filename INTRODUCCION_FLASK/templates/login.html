@@ -15,7 +15,7 @@
             INICIAR SESION
         </h1>
         <br>
-        <form>
+        <form action="{{ url_for('login') }}" method="post">
             <label>Correo:</label>
             <br>
             <input type="email" name="correo" class="email input-accent" required>
@@ -23,7 +23,7 @@
             <br>
             <label>Contraseña:</label>
             <br>
-            <input type="password" name="password_hash" class="password input-accent" readonly>
+            <input type="password" name="password" class="password input-accent" required>
             <br>
             <br>
             <button type="submit" class="btn btn-warning">Entrar</button>
