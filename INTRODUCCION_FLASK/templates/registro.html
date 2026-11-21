@@ -10,36 +10,77 @@
 </head>
 
 <body>
-    <div>
-        <h1>Registro de usuarios</h1>
+    {% extends 'nav_footer.html' %}
+
+    {% block content %}
+
+    <div style="margin-left: 400px; margin-bottom: 100px; margin-top: 50px;">
+        <h1 class="text-3xl font-bold">
+            INICIAR SESION
+        </h1>
         <br>
         <form action="/registro" method="post">
-            <label>Nombre(s): </label>
-            <br>
-            <input type="text" name="nombre">
+            <label class="text-xl">Nombre(s): </label>
             <br>
             <br>
-            <label>Apellido paterno: </label>
-            <br>
-            <input type="text" name="apellido_p">
-            <br>
-            <br>
-            <label>Apellido materno: </label>
-            <br>
-            <input type="text" name="apellido_m">
+            <fieldset class="fieldset">
+                <legend class="fieldset-legend">Cual es tu nombre?</legend>
+                <input type="text" class="input" placeholder="Escribe aqui" name="nombre" />
+            </fieldset>
             <br>
             <br>
-            <label>Correo: </label>
-            <br>
-            <input type="email" name="correo">
+            <label class="text-xl">Apellidos </label>
             <br>
             <br>
-            <label>Contraseña: </label>
+            <fieldset class="fieldset">
+                <legend class="fieldset-legend">Apellido Paterno</legend>
+                <input type="text" class="input" placeholder="Escribe aqui" name="apellido_p" />
+            </fieldset>
             <br>
-            <input type="password" name="password">
+            <fieldset class="fieldset">
+                <legend class="fieldset-legend">Apellido Materno</legend>
+                <input type="text" class="input" placeholder="Escribe aqui" name="apellido_m" />
+            </fieldset>
             <br>
             <br>
-            <label for="id_rol">Rol: </label>
+            <label class="text-xl">Correo: </label>
+            <br>
+            <label class="input validator">
+                <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none"
+                        stroke="currentColor">
+                        <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                    </g>
+                </svg>
+                <input type="email" placeholder="mail@site.com" name="correo" required />
+            </label>
+            <div class="validator-hint hidden">Ingrese una direccion de correo valida</div>
+            <br>
+            <br>
+            <label class="text-xl">Contraseña: </label>
+            <br>
+            <label class="input validator">
+                <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none"
+                        stroke="currentColor">
+                        <path
+                            d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z">
+                        </path>
+                        <circle cx="16.5" cy="7.5" r=".5" fill="currentColor"></circle>
+                    </g>
+                </svg>
+                <input type="password" required placeholder="Contraseña" name="password" minlength="8"
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                    title="Must be more than 8 characters, including number, lowercase letter, uppercase letter" />
+            </label>
+            <p class="validator-hint hidden">
+                Tiene que ser mas de 8 caracteres, incluyendo
+                <br />Al menos un numero <br />Al menos una letra minuscula <br />Al menos una letra mayuscula
+            </p>
+            <br>
+            <br>
+            <label for="id_rol" class="text-xl">Rol: </label>
             <br>
             <select name="id_rol" id="id_rol">
                 <option value="1">Administrador</option>
@@ -48,12 +89,14 @@
             <br>
             <br>
 
-            <button type="submit" class="btn btn-warning">Registrar</button>
+            <button type="submit" class="btn btn-neutral">Registrar</button>
         </form>
         <br>
         <br>
-        <p><a href="{{ url_for('login') }}">Regresar</a></p>
+        <p><a href="{{ url_for('login') }}" class="link link-hover">Regresar</a></p>
     </div>
+    {% endblock %}
+
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 

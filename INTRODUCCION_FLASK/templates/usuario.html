@@ -1,13 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+
     <title>Usuario</title>
 </head>
-<body>
-    Este es el dashboard de usuarios
 
-    <p><a href="{{ url_for('logout') }}">Cerrar Sesión</a></p>
+<body>
+    {% extends 'nav_footer.html' %}
+
+    {% block content %}
+    <div class="p-10">
+
+    
+    <h1 class="text-3xl font-bold">
+        Bienvenido, usuario
+    </h1>
+
+    <p class="mt-4">
+            Este es el contenido principal de la pagina
+        </p>
+
+    <p><a href="{{ url_for('logout') }}" class="link link-hover">Cerrar Sesión</a></p>
+
+    </div>
+    {% endblock %}
 </body>
+
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
 </html>
